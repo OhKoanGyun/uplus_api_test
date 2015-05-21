@@ -41,7 +41,7 @@ exports.register = function (req, res) {
 exports.deviceEvent = function (req, res) {
 
   var domain = req.query.host || config.domain,
-    endpoint = domain + '/admin/1.2/devices/' + req.query.deviceId + '/event',
+    endpoint = domain + '/admin/1.2/devices/' + req.query.deviceId + '/events',
     options = {
       method: 'GET',
       url: endpoint,
