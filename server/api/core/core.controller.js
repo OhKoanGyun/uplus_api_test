@@ -29,9 +29,9 @@ exports.index = function(req, res) {
     });
   } else {
 
-    if (_.keys(req.query).length) {
+    if (options.method === 'GET') {
       options = _.extend(options, {qs: req.query});
-    } else if (_.keys(req.query).length) {
+    } else if (options.method === 'POST' || options.method === 'PUT') {
       options = _.extend(options, {body: req.body});
     }
 
