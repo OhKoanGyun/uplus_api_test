@@ -137,7 +137,7 @@ angular.module('uplusApiApp')
           result = key + ' 를 입력 해 주십시오.';
         }
       })
-
+      console.log(result);
       return result;
     }
 
