@@ -26,13 +26,13 @@ exports.register = function (req, res) {
 
   request(options, function (err, response, body) {
 
-    var statusCode = response.statusCode;
+    var statusCode = (response && response.statusCode) || 400,
+      result = err || body;
 
-    if (err) {
-      res.status(statusCode).send(err);
-    } else {
-      res.status(statusCode).send(body);
-    }
+    res.send({
+      statusCode: statusCode,
+      result: result
+    });
 
   });
 
@@ -60,13 +60,13 @@ exports.deviceEvent = function (req, res) {
 
   request(options, function (err, response, body) {
 
-    var statusCode = response.statusCode;
+    var statusCode = (response && response.statusCode) || 400,
+      result = err || body;
 
-    if (err) {
-      res.status(statusCode).send(err);
-    } else {
-      res.status(statusCode).send(body);
-    }
+    res.send({
+      statusCode: statusCode,
+      result: result
+    });
 
   });
 
@@ -93,13 +93,13 @@ exports.deviceEvents = function (req, res) {
 
   request(options, function (err, response, body) {
 
-    var statusCode = response.statusCode;
+    var statusCode = (response && response.statusCode) || 400,
+      result = err || body;
 
-    if (err) {
-      res.status(statusCode).send(err);
-    } else {
-      res.status(statusCode).send(body);
-    }
+    res.send({
+      statusCode: statusCode,
+      result: result
+    });
 
   });
 
@@ -121,13 +121,13 @@ exports.deviceStatus = function (req, res) {
 
   request(options, function (err, response, body) {
 
-    var statusCode = response.statusCode;
+    var statusCode = (response && response.statusCode) || 400,
+      result = err || body;
 
-    if (err) {
-      res.status(statusCode).send(err);
-    } else {
-      res.status(statusCode).send(body);
-    }
+    res.send({
+      statusCode: statusCode,
+      result: result
+    });
 
   });
 
@@ -149,13 +149,13 @@ exports.deviceReset = function (req, res) {
 
   request(options, function (err, response, body) {
 
-    var statusCode = response.statusCode;
+    var statusCode = (response && response.statusCode) || 400,
+      result = err || body;
 
-    if (err) {
-      res.status(statusCode).send(err);
-    } else {
-      res.status(statusCode).send(body);
-    }
+    res.send({
+      statusCode: statusCode,
+      result: result
+    });
 
   });
 
@@ -177,13 +177,13 @@ exports.deviceMeteringUsage = function (req, res) {
 
   request(options, function (err, response, body) {
 
-    var statusCode = response.statusCode;
+    var statusCode = (response && response.statusCode) || 400,
+      result = err || body;
 
-    if (err) {
-      res.status(statusCode).send(err);
-    } else {
-      res.status(statusCode).send(body);
-    }
+    res.send({
+      statusCode: statusCode,
+      result: result
+    });
 
   });
 

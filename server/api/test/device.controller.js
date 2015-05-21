@@ -22,13 +22,13 @@ exports.realtime = function (req, res) {
 
   request(options, function (err, response, body) {
 
-    var statusCode = response.statusCode;
+    var statusCode = (response && response.statusCode) || 400,
+      result = err || body;
 
-    if (err) {
-      res.status(statusCode).send(err);
-    } else {
-      res.status(statusCode).send(body);
-    }
+    res.send({
+      statusCode: statusCode,
+      result: result
+    });
 
   });
 
@@ -50,13 +50,13 @@ exports.hourlyUsage = function (req, res) {
 
   request(options, function (err, response, body) {
 
-    var statusCode = response.statusCode;
+    var statusCode = (response && response.statusCode) || 400,
+      result = err || body;
 
-    if (err) {
-      res.status(statusCode).send(err);
-    } else {
-      res.status(statusCode).send(body);
-    }
+    res.send({
+      statusCode: statusCode,
+      result: result
+    });
 
   });
 
@@ -78,13 +78,13 @@ exports.dailyUsage = function (req, res) {
 
   request(options, function (err, response, body) {
 
-    var statusCode = response.statusCode;
+    var statusCode = (response && response.statusCode) || 400,
+      result = err || body;
 
-    if (err) {
-      res.status(statusCode).send(err);
-    } else {
-      res.status(statusCode).send(body);
-    }
+    res.send({
+      statusCode: statusCode,
+      result: result
+    });
 
   });
 
@@ -102,20 +102,20 @@ exports.setEventPush = function (req, res) {
         'token': req.query.token
       },
       qs: {
-        status: req.query.status
+        statusCode: req.query.status
       },
       json: true
     };
 
   request(options, function (err, response, body) {
 
-    var statusCode = response.statusCode;
+    var statusCode = (response && response.statusCode) || 400,
+      result = err || body;
 
-    if (err) {
-      res.status(statusCode).send(err);
-    } else {
-      res.status(statusCode).send(body);
-    }
+    res.send({
+      statusCode: statusCode,
+      result: result
+    });
 
   });
 
@@ -137,13 +137,13 @@ exports.getEventPush = function (req, res) {
 
   request(options, function (err, response, body) {
 
-    var statusCode = response.statusCode;
+    var statusCode = (response && response.statusCode) || 400,
+      result = err || body;
 
-    if (err) {
-      res.status(statusCode).send(err);
-    } else {
-      res.status(statusCode).send(body);
-    }
+    res.send({
+      statusCode: statusCode,
+      result: result
+    });
 
   });
 

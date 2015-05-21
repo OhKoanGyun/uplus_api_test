@@ -129,9 +129,9 @@ angular.module('uplusApiApp')
         params : $scope.currentTest.param
       })
       .then(
-        function(data, status){
-          $scope.response = data;
-          $scope.status = status;
+        function(response){
+          $scope.statusCode = response.data.statusCode;
+          $scope.result = response.data.result;
         },
         function(data){
           alert('Error 발생~!!');
