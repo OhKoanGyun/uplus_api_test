@@ -41,11 +41,7 @@ var all = {
     }
   },
 
-  domain: 'http://api.ongetit.com',
-
-  endpoint: {
-    test: '/'
-  }
+  domain: 'http://api.ongetit.com'
 
 };
 
