@@ -102,10 +102,20 @@ angular.module('uplusApiApp')
     ];
 
     $scope.selectTest = function(item){
+      clearItem(item.param);
       $scope.currentTest = item;
     };
 
+    $scope.getKey = function(item){
+      if(!item) return;
+
+      return Object.keys(item);
+    }
+
     $scope.run = function(){
+      $scope.response = null;
+      $scope.status = null;
+
       $scope.currentTest.param.host = $scope.host;
       var result = validate($scope.currentTest.param);
       if(result){
@@ -129,6 +139,12 @@ angular.module('uplusApiApp')
       );
     };
 
+    function clearItem(item){
+      angular.forEach(item, function(val, key){
+        item[key] = '';
+      });
+    };
+
     function validate(item){
       var result = null;
       console.log(item);
@@ -138,6 +154,6 @@ angular.module('uplusApiApp')
         }
       });
       return result;
-    }
+    };
 
   });
