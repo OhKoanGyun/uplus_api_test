@@ -41,23 +41,24 @@ exports.register = function (req, res) {
 exports.deviceEvent = function (req, res) {
 
   var domain = req.query.host || config.domain,
-    endpoint = domain + '/admin/1.2/devices/' + req.query.deviceId + '/event';
+    endpoint = domain + '/admin/1.2/devices/' + req.query.deviceId + '/event',
+    options = {
+      method: 'GET',
+      url: domain + endpoint,
+      headers: {
+        'Authorization': apiKey,
+        'device-id-type': req.query.deviceIdType
+      },
+      qs: {
+        start: req.query.start,
+        end: req.query.end,
+        offset: req.query.offset,
+        limit: req.query.limit
+      },
+      json: true
+    };
 
-  request({
-    method: 'GET',
-    url: domain + endpoint,
-    headers: {
-      'Authorization': apiKey,
-      'device-id-type': req.query.deviceIdType
-    },
-    qs: {
-      start: req.query.start,
-      end: req.query.end,
-      offset: req.query.offset,
-      limit: req.query.limit
-    },
-    json: true
-  }, function (err, response, body) {
+  request(options, function (err, response, body) {
 
     var statusCode = response.statusCode;
 
@@ -74,22 +75,23 @@ exports.deviceEvent = function (req, res) {
 exports.deviceEvents = function (req, res) {
 
   var domain = req.query.host || config.domain,
-    endpoint = domain + '/admin/1.2/devices/events';
+    endpoint = domain + '/admin/1.2/devices/events',
+    options = {
+      method: 'GET',
+      url: domain + endpoint,
+      headers: {
+        'Authorization': apiKey
+      },
+      qs: {
+        start: req.query.start,
+        end: req.query.end,
+        offset: req.query.offset,
+        limit: req.query.limit
+      },
+      json: true
+    };
 
-  request({
-    method: 'GET',
-    url: domain + endpoint,
-    headers: {
-      'Authorization': apiKey
-    },
-    qs: {
-      start: req.query.start,
-      end: req.query.end,
-      offset: req.query.offset,
-      limit: req.query.limit
-    },
-    json: true
-  }, function (err, response, body) {
+  request(options, function (err, response, body) {
 
     var statusCode = response.statusCode;
 
@@ -106,17 +108,18 @@ exports.deviceEvents = function (req, res) {
 exports.deviceStatus = function (req, res) {
 
   var domain = req.query.host || config.domain,
-    endpoint = domain + '/admin/1.2/devices/' + req.query.deviceId + '/status';
+    endpoint = domain + '/admin/1.2/devices/' + req.query.deviceId + '/status',
+    options = {
+      method: 'GET',
+      url: domain + endpoint,
+      headers: {
+        'Authorization': apiKey,
+        'device-id-type': req.query.deviceIdType
+      },
+      json: true
+    };
 
-  request({
-    method: 'GET',
-    url: domain + endpoint,
-    headers: {
-      'Authorization': apiKey,
-      'device-id-type': req.query.deviceIdType
-    },
-    json: true
-  }, function (err, response, body) {
+  request(options, function (err, response, body) {
 
     var statusCode = response.statusCode;
 
@@ -133,17 +136,18 @@ exports.deviceStatus = function (req, res) {
 exports.deviceReset = function (req, res) {
 
   var domain = req.query.host || config.domain,
-    endpoint = domain + '/admin/1.2/devices/' + req.query.deviceId + '/reset';
+    endpoint = domain + '/admin/1.2/devices/' + req.query.deviceId + '/reset',
+    options = {
+      method: 'PUT',
+      url: domain + endpoint,
+      headers: {
+        'Authorization': apiKey,
+        'device-id-type': req.query.deviceIdType
+      },
+      json: true
+    };
 
-  request({
-    method: 'PUT',
-    url: domain + endpoint,
-    headers: {
-      'Authorization': apiKey,
-      'device-id-type': req.query.deviceIdType
-    },
-    json: true
-  }, function (err, response, body) {
+  request(options, function (err, response, body) {
 
     var statusCode = response.statusCode;
 
@@ -160,17 +164,18 @@ exports.deviceReset = function (req, res) {
 exports.deviceMeteringUsage = function (req, res) {
 
   var domain = req.query.host || config.domain,
-    endpoint = domain + '/admin/1.2/devices/' + req.query.deviceId + '/meteringUsage';
+    endpoint = domain + '/admin/1.2/devices/' + req.query.deviceId + '/meteringUsage',
+    options = {
+      method: 'GET',
+      url: domain + endpoint,
+      headers: {
+        'Authorization': apiKey,
+        'device-id-type': req.query.deviceIdType
+      },
+      json: true
+    };
 
-  request({
-    method: 'GET',
-    url: domain + endpoint,
-    headers: {
-      'Authorization': apiKey,
-      'device-id-type': req.query.deviceIdType
-    },
-    json: true
-  }, function (err, response, body) {
+  request(options, function (err, response, body) {
 
     var statusCode = response.statusCode;
 

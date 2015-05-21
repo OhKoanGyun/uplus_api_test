@@ -9,17 +9,18 @@ var apiKey = env.DEVICE_API_KEY;
 exports.realtime = function (req, res) {
 
   var domain = req.query.host || config.domain,
-    endpoint = domain + '/devices/devices/' + req.query.deviceId + '/realtimeInfo';
+    endpoint = domain + '/devices/devices/' + req.query.deviceId + '/realtimeInfo',
+    options = {
+      method: 'GET',
+      url: domain + endpoint,
+      headers: {
+        'Authorization': apiKey,
+        'token': req.query.token
+      },
+      json: true
+    };
 
-  request({
-    method: 'GET',
-    url: domain + endpoint,
-    headers: {
-      'Authorization': apiKey,
-      'token': req.query.token
-    },
-    json: true
-  }, function (err, response, body) {
+  request(options, function (err, response, body) {
 
     var statusCode = response.statusCode;
 
@@ -36,17 +37,18 @@ exports.realtime = function (req, res) {
 exports.hourlyUsage = function (req, res) {
 
   var domain = req.query.host || config.domain,
-    endpoint = domain + '/devices/devices/hourly/usages';
+    endpoint = domain + '/devices/devices/hourly/usages',
+    options = {
+      method: 'GET',
+      url: domain + endpoint,
+      headers: {
+        'Authorization': apiKey,
+        'token': req.query.token
+      },
+      json: true
+    };
 
-  request({
-    method: 'GET',
-    url: domain + endpoint,
-    headers: {
-      'Authorization': apiKey,
-      'token': req.query.token
-    },
-    json: true
-  }, function (err, response, body) {
+  request(options, function (err, response, body) {
 
     var statusCode = response.statusCode;
 
@@ -63,17 +65,18 @@ exports.hourlyUsage = function (req, res) {
 exports.dailyUsage = function (req, res) {
 
   var domain = req.query.host || config.domain,
-    endpoint = domain + '/devices/devices/daily/usages';
+    endpoint = domain + '/devices/devices/daily/usages',
+    options = {
+      method: 'GET',
+      url: domain + endpoint,
+      headers: {
+        'Authorization': apiKey,
+        'token': req.query.token
+      },
+      json: true
+    };
 
-  request({
-    method: 'GET',
-    url: domain + endpoint,
-    headers: {
-      'Authorization': apiKey,
-      'token': req.query.token
-    },
-    json: true
-  }, function (err, response, body) {
+  request(options, function (err, response, body) {
 
     var statusCode = response.statusCode;
 
@@ -90,20 +93,21 @@ exports.dailyUsage = function (req, res) {
 exports.setEventPush = function (req, res) {
 
   var domain = req.query.host || config.domain,
-    endpoint = domain + '/devices/devices/events/push';
+    endpoint = domain + '/devices/devices/events/push',
+    options = {
+      method: 'PUT',
+      url: domain + endpoint,
+      headers: {
+        'Authorization': apiKey,
+        'token': req.query.token
+      },
+      qs: {
+        status: req.query.status
+      },
+      json: true
+    };
 
-  request({
-    method: 'PUT',
-    url: domain + endpoint,
-    headers: {
-      'Authorization': apiKey,
-      'token': req.query.token
-    },
-    qs: {
-      status: req.query.status
-    },
-    json: true
-  }, function (err, response, body) {
+  request(options, function (err, response, body) {
 
     var statusCode = response.statusCode;
 
@@ -120,17 +124,18 @@ exports.setEventPush = function (req, res) {
 exports.getEventPush = function (req, res) {
 
   var domain = req.query.host || config.domain,
-    endpoint = domain + '/devices/devices/events/push';
+    endpoint = domain + '/devices/devices/events/push',
+    options = {
+      method: 'GET',
+      url: domain + endpoint,
+      headers: {
+        'Authorization': apiKey,
+        'token': req.query.token
+      },
+      json: true
+    };
 
-  request({
-    method: 'GET',
-    url: domain + endpoint,
-    headers: {
-      'Authorization': apiKey,
-      'token': req.query.token
-    },
-    json: true
-  }, function (err, response, body) {
+  request(options, function (err, response, body) {
 
     var statusCode = response.statusCode;
 
