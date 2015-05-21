@@ -62,12 +62,12 @@
         <div class="panel-heading">
           <h3 class="panel-title">테스트 결과</h3>
         </div>
-        <div class="panel-body" style="height: 500px; overflow-y: scroll">
-          <div class="row">
-            <h4>Status : <span>{{status}}</span></h4>
+        <div class="panel-body" style="height: 500px; overflow-y: scroll;">
+          <div>
+            <h4>Status : <span>{{statusCode}}</span></h4>
             <br>
             <h4>Result</h4>
-            <p>{{response}}</p>
+            <pre ng-show="result">{{result | json}}</pre>
           </div>
         </div>
       </div>
@@ -77,8 +77,6 @@
 
 <footer class="footer">
   <div class="container">
-      <p>Angular Fullstack v2.0.13 |
-        <a href="https://twitter.com/tyhenkel">@tyhenkel</a> |
-         <a href="https://github.com/DaftMonk/generator-angular-fullstack/issues?state=open">Issues</a></p>
+    &copy; 2015 Encored Technologies, INC. All rights reserved.
   </div>
 </footer>
