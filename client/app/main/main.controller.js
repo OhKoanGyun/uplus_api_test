@@ -2,7 +2,7 @@
 
 angular.module('uplusApiApp')
   .controller('MainCtrl', function ($scope, $http) {
-    $scope.host = null;
+    $scope.host = '';
     $scope.testItems = [
       {
         name : '페어링',
@@ -106,12 +106,12 @@ angular.module('uplusApiApp')
     };
 
     $scope.run = function(){
-      if(validate($scope.currentTest.param)){
+      $scope.currentTest.param.host = $scope.host;
+      var result = validate($scope.currentTest.param);
+      if(result){
         alert(result);
         return;
       }
-
-      $scope.currentTest.param.host = $scope.host;
 
       $http({
         url : $scope.currentTest.api,
@@ -131,13 +131,12 @@ angular.module('uplusApiApp')
 
     function validate(item){
       var result = null;
-
-      angular.forEach(item, function(key, val){
+      console.log(item);
+      angular.forEach(item, function(val, key){
         if(val === ''|| val === null || val === 'undifined'){
           result = key + ' 를 입력 해 주십시오.';
         }
-      })
-      console.log(result);
+      });
       return result;
     }
 

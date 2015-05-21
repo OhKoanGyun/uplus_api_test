@@ -9,7 +9,7 @@
         </div>
         <div class="panel-body">
           <div class="list-group">
-            <a href="#" ng-click="selectTest(item)" class="list-group-item" ng-repeat="item in testItems">{{item.name}}</a>
+            <a href="#" ng-click="selectTest(item)" class="list-group-item" ng-repeat="item in testItems" ng-class="{'active' : item.name == currentTest.name}">{{item.name}}</a>
           </div>
         </div>
       </div>
@@ -20,21 +20,21 @@
           <h3 class="panel-title">테스트 옵션 설정</h3>
         </div>
         <div class="panel-body">
-          <form action="" class="form-horizontal">
+          <form class="form-horizontal">
             <div class="form-group">
               <label for="" class="col-md-3 control-label">Host</label>
               <div class="col-md-9">
-                <input type="text" class="form-control input-sm" ng-model="currentTest.param.host"/>
+                <input type="text" class="form-control input-sm" ng-model="host"/>
               </div>
             </div>
             <div class="form-group" ng-repeat="(key, val) in currentTest.param">
-              <div ng-if="key != 'deviceIdType'">
+              <div ng-if="key != 'deviceIdType' && key != 'host'">
                 <label for="" class="col-md-3 control-label">{{key}}</label>
                 <div class="col-md-9">
-                  <input type="text" class="form-control input-sm" ng-model="currentTest.param.{{key}}" ng-value=""/>
+                  <input type="text" class="form-control input-sm" ng-model="currentTest.param[key]"/>
                 </div>
               </div>
-              <div ng-if="key == 'deviceIdType'">
+              <div ng-if="key == 'deviceIdType' && key != 'host'">
                 <label for="" class="col-md-3 control-label">{{key}}</label>
                 <div class="col-md-9">
                   <label for="" class="checkbox-inline">
@@ -63,7 +63,12 @@
           <h3 class="panel-title">테스트 결과</h3>
         </div>
         <div class="panel-body" style="height: 500px; overflow-y: scroll">
-
+          <div class="row">
+            <h4>Status : <span>{{status}}</span></h4>
+            <br>
+            <h4>Result</h4>
+            <p>{{response}}</p>
+          </div>
         </div>
       </div>
     </div>
