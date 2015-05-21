@@ -41,6 +41,12 @@ var all = {
     }
   },
 
+  domain: 'http://api.ongetit.com',
+
+  endpoint: {
+    test: '/'
+  }
+
 };
 
 // Export the config object based on the NODE_ENV
