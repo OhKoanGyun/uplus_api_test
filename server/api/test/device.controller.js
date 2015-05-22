@@ -4,12 +4,12 @@ var _ = require('lodash');
 var request = require('request');
 var config = require('../../config/environment');
 var env = require('../../config/local.env');
-var apiKey = env.DEVICE_API_KEY;
+var apiKey = 'basic ' + env.DEVICE_API_KEY;
 
 exports.realtime = function (req, res) {
 
   var domain = req.query.host || config.domain,
-    endpoint = domain + '/devices/devices/' + req.query.deviceId + '/realtimeInfo',
+    endpoint = domain + '/devices/' + req.query.deviceId + '/realtimeInfo',
     options = {
       method: 'GET',
       url: domain + endpoint,
@@ -37,7 +37,7 @@ exports.realtime = function (req, res) {
 exports.hourlyUsage = function (req, res) {
 
   var domain = req.query.host || config.domain,
-    endpoint = domain + '/devices/devices/hourly/usages',
+    endpoint = domain + '/devices/hourly/usages',
     options = {
       method: 'GET',
       url: domain + endpoint,
@@ -65,7 +65,7 @@ exports.hourlyUsage = function (req, res) {
 exports.dailyUsage = function (req, res) {
 
   var domain = req.query.host || config.domain,
-    endpoint = domain + '/devices/devices/daily/usages',
+    endpoint = domain + '/devices/daily/usages',
     options = {
       method: 'GET',
       url: domain + endpoint,
@@ -93,7 +93,7 @@ exports.dailyUsage = function (req, res) {
 exports.setEventPush = function (req, res) {
 
   var domain = req.query.host || config.domain,
-    endpoint = domain + '/devices/devices/events/push',
+    endpoint = domain + '/devices/events/push',
     options = {
       method: 'PUT',
       url: domain + endpoint,
@@ -124,7 +124,7 @@ exports.setEventPush = function (req, res) {
 exports.getEventPush = function (req, res) {
 
   var domain = req.query.host || config.domain,
-    endpoint = domain + '/devices/devices/events/push',
+    endpoint = domain + '/devices/events/push',
     options = {
       method: 'GET',
       url: domain + endpoint,
