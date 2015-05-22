@@ -19,7 +19,7 @@ exports.register = function (req, res) {
       },
       body: {
         serialNumber: req.query.serialNumber,
-        deviceId: req.query.deviceId
+        uuid: req.query.uuid
       },
       json: true
     };

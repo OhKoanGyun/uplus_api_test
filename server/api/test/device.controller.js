@@ -37,7 +37,9 @@ exports.realtime = function (req, res) {
 exports.hourlyUsage = function (req, res) {
 
   var domain = req.query.host || config.domain,
+
     endpoint = domain + '/devices/' + req.query.deviceId + '/hourly/usages',
+
     options = {
       method: 'GET',
       url: endpoint,
@@ -65,7 +67,9 @@ exports.hourlyUsage = function (req, res) {
 exports.dailyUsage = function (req, res) {
 
   var domain = req.query.host || config.domain,
+
     endpoint = domain + '/devices/' + req.query.deviceId + '/daily/usages',
+
     options = {
       method: 'GET',
       url: endpoint,
@@ -91,9 +95,10 @@ exports.dailyUsage = function (req, res) {
 };
 
 exports.setEventPush = function (req, res) {
-
   var domain = req.query.host || config.domain,
-    endpoint = domain + '/devices/' + req.query.deviceId + '/events/push',
+
+    endpoint = domain + '/1.2/devices/' + req.query.deviceId + '/events/push',
+
     options = {
       method: 'PUT',
       url: endpoint,
@@ -101,8 +106,8 @@ exports.setEventPush = function (req, res) {
         'Authorization': 'Basic ' + apiKey,
         'token': req.query.token
       },
-      qs: {
-        statusCode: req.query.status
+      body: {
+        status: req.query.status
       },
       json: true
     };
@@ -124,7 +129,8 @@ exports.setEventPush = function (req, res) {
 exports.getEventPush = function (req, res) {
 
   var domain = req.query.host || config.domain,
-    endpoint = domain + '/devices/' + req.query.deviceId + '/events/push',
+
+    endpoint = domain + '/1.2/devices/' + req.query.deviceId + '/events/push',
     options = {
       method: 'GET',
       url: endpoint,
