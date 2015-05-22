@@ -47,7 +47,11 @@ exports.hourlyUsage = function (req, res) {
         'Authorization': 'Basic ' + apiKey,
         'token': req.query.token
       },
-      json: true
+      json: true,
+      qs: {
+        start: req.query.start,
+        end: req.query.end
+      }
     };
 
   request(options, function (err, response, body) {
@@ -77,7 +81,11 @@ exports.dailyUsage = function (req, res) {
         'Authorization': 'Basic ' + apiKey,
         'token': req.query.token
       },
-      json: true
+      json: true,
+      qs: {
+        start: req.query.start,
+        end: req.query.end
+      }
     };
 
   request(options, function (err, response, body) {
