@@ -4,7 +4,7 @@ var _ = require('lodash');
 var request = require('request');
 var config = require('../../config/environment');
 var env = require('../../config/local.env');
-var apiKey = 'basic ' + env.ADMIN_API_KEY;
+var apiKey = env.ADMIN_API_KEY;
 
 exports.register = function (req, res) {
 
