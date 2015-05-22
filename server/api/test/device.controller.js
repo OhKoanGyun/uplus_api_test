@@ -95,10 +95,9 @@ exports.dailyUsage = function (req, res) {
 };
 
 exports.setEventPush = function (req, res) {
-
   var domain = req.query.host || config.domain,
 
-    endpoint = domain + '/devices/' + req.query.deviceId + '/events/push',
+    endpoint = domain + '/1.2/devices/' + req.query.deviceId + '/events/push',
 
     options = {
       method: 'PUT',
@@ -107,8 +106,8 @@ exports.setEventPush = function (req, res) {
         'Authorization': 'Basic ' + apiKey,
         'token': req.query.token
       },
-      qs: {
-        statusCode: req.query.status
+      body: {
+        status: req.query.status
       },
       json: true
     };
@@ -131,7 +130,7 @@ exports.getEventPush = function (req, res) {
 
   var domain = req.query.host || config.domain,
 
-    endpoint = domain + '/devices/' + req.query.deviceId + '/events/push',
+    endpoint = domain + '/1.2/devices/' + req.query.deviceId + '/events/push',
     options = {
       method: 'GET',
       url: endpoint,

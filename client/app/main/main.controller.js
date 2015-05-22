@@ -88,7 +88,8 @@ angular.module('uplusApiApp')
         api : '/test/device/events/push/set',
         param :{
           deviceId : '',
-          token : ''
+          token : '',
+          status : ''
         }
       },
       {
