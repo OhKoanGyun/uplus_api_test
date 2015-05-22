@@ -73,7 +73,9 @@ angular.module('uplusApiApp')
         api : '/test/device/hourly/usage',
         param :{
           deviceId : '',
-          token : ''
+          token : '',
+          start: '',
+          end: ''
         }
       },
       {
@@ -81,7 +83,9 @@ angular.module('uplusApiApp')
         api : '/test/device/daily/usage',
         param :{
           deviceId : '',
-          token : ''
+          token : '',
+          start: '',
+          end: ''
         }
       },
       {
