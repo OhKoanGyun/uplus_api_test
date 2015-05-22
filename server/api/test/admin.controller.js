@@ -12,9 +12,9 @@ exports.register = function (req, res) {
     endpoint = domain + '/admin/1.2/devices/register',
     options = {
       method: 'POST',
-      url: domain + endpoint,
+      url: endpoint,
       headers: {
-        'Authorization': apiKey,
+        'Authorization': 'Basic ' + apiKey,
         'token': req.query.token
       },
       body: {
@@ -41,12 +41,12 @@ exports.register = function (req, res) {
 exports.deviceEvent = function (req, res) {
 
   var domain = req.query.host || config.domain,
-    endpoint = domain + '/admin/1.2/devices/' + req.query.deviceId + '/event',
+    endpoint = domain + '/admin/1.2/devices/' + req.query.deviceId + '/events',
     options = {
       method: 'GET',
-      url: domain + endpoint,
+      url: endpoint,
       headers: {
-        'Authorization': apiKey,
+        'Authorization': 'Basic ' + apiKey,
         'device-id-type': req.query.deviceIdType
       },
       qs: {
@@ -78,9 +78,9 @@ exports.deviceEvents = function (req, res) {
     endpoint = domain + '/admin/1.2/devices/events',
     options = {
       method: 'GET',
-      url: domain + endpoint,
+      url: endpoint,
       headers: {
-        'Authorization': apiKey
+        'Authorization': 'Basic ' + apiKey
       },
       qs: {
         start: req.query.start,
@@ -111,9 +111,9 @@ exports.deviceStatus = function (req, res) {
     endpoint = domain + '/admin/1.2/devices/' + req.query.deviceId + '/status',
     options = {
       method: 'GET',
-      url: domain + endpoint,
+      url: endpoint,
       headers: {
-        'Authorization': apiKey,
+        'Authorization': 'Basic ' + apiKey,
         'device-id-type': req.query.deviceIdType
       },
       json: true
@@ -139,9 +139,9 @@ exports.deviceReset = function (req, res) {
     endpoint = domain + '/admin/1.2/devices/' + req.query.deviceId + '/reset',
     options = {
       method: 'PUT',
-      url: domain + endpoint,
+      url: endpoint,
       headers: {
-        'Authorization': apiKey,
+        'Authorization': 'Basic ' + apiKey,
         'device-id-type': req.query.deviceIdType
       },
       json: true
@@ -167,9 +167,9 @@ exports.deviceMeteringUsage = function (req, res) {
     endpoint = domain + '/admin/1.2/devices/' + req.query.deviceId + '/meteringUsage',
     options = {
       method: 'GET',
-      url: domain + endpoint,
+      url: endpoint,
       headers: {
-        'Authorization': apiKey,
+        'Authorization': 'Basic ' + apiKey,
         'device-id-type': req.query.deviceIdType
       },
       json: true

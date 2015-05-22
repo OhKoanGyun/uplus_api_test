@@ -12,9 +12,9 @@ exports.realtime = function (req, res) {
     endpoint = domain + '/devices/' + req.query.deviceId + '/realtimeInfo',
     options = {
       method: 'GET',
-      url: domain + endpoint,
+      url: endpoint,
       headers: {
-        'Authorization': apiKey,
+        'Authorization': 'Basic ' + apiKey,
         'token': req.query.token
       },
       json: true
@@ -37,12 +37,14 @@ exports.realtime = function (req, res) {
 exports.hourlyUsage = function (req, res) {
 
   var domain = req.query.host || config.domain,
-    endpoint = domain + '/devices/hourly/usages',
+
+    endpoint = domain + '/devices/' + req.query.deviceId + '/hourly/usages',
+
     options = {
       method: 'GET',
-      url: domain + endpoint,
+      url: endpoint,
       headers: {
-        'Authorization': apiKey,
+        'Authorization': 'Basic ' + apiKey,
         'token': req.query.token
       },
       json: true
@@ -65,12 +67,14 @@ exports.hourlyUsage = function (req, res) {
 exports.dailyUsage = function (req, res) {
 
   var domain = req.query.host || config.domain,
-    endpoint = domain + '/devices/daily/usages',
+
+    endpoint = domain + '/devices/' + req.query.deviceId + '/daily/usages',
+
     options = {
       method: 'GET',
-      url: domain + endpoint,
+      url: endpoint,
       headers: {
-        'Authorization': apiKey,
+        'Authorization': 'Basic ' + apiKey,
         'token': req.query.token
       },
       json: true
@@ -93,12 +97,14 @@ exports.dailyUsage = function (req, res) {
 exports.setEventPush = function (req, res) {
 
   var domain = req.query.host || config.domain,
-    endpoint = domain + '/devices/events/push',
+
+    endpoint = domain + '/devices/' + req.query.deviceId + '/events/push',
+
     options = {
       method: 'PUT',
-      url: domain + endpoint,
+      url: endpoint,
       headers: {
-        'Authorization': apiKey,
+        'Authorization': 'Basic ' + apiKey,
         'token': req.query.token
       },
       qs: {
@@ -124,12 +130,13 @@ exports.setEventPush = function (req, res) {
 exports.getEventPush = function (req, res) {
 
   var domain = req.query.host || config.domain,
-    endpoint = domain + '/devices/events/push',
+
+    endpoint = domain + '/devices/' + req.query.deviceId + '/events/push',
     options = {
       method: 'GET',
-      url: domain + endpoint,
+      url: endpoint,
       headers: {
-        'Authorization': apiKey,
+        'Authorization': 'Basic ' + apiKey,
         'token': req.query.token
       },
       json: true
