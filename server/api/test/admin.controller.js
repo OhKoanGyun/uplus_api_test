@@ -182,7 +182,8 @@ exports.deviceMeteringUsage = function (req, res) {
 
     res.send({
       statusCode: statusCode,
-      result: result
+      result: result,
+      timestamp: req.query.timestamp
     });
 
   });

@@ -9,7 +9,7 @@ var apiKey = env.DEVICE_API_KEY;
 exports.realtime = function (req, res) {
 
   var domain = req.query.host || config.domain,
-    endpoint = domain + '/devices/' + req.query.deviceId + '/realtimeInfo',
+    endpoint = domain + '/1.1/devices/' + req.query.deviceId + '/realtimeInfo',
     options = {
       method: 'GET',
       url: endpoint,
@@ -38,7 +38,7 @@ exports.hourlyUsage = function (req, res) {
 
   var domain = req.query.host || config.domain,
 
-    endpoint = domain + '/devices/' + req.query.deviceId + '/hourly/usages',
+    endpoint = domain + '/1.1/devices/' + req.query.deviceId + '/hourly/usages',
 
     options = {
       method: 'GET',
@@ -68,7 +68,7 @@ exports.dailyUsage = function (req, res) {
 
   var domain = req.query.host || config.domain,
 
-    endpoint = domain + '/devices/' + req.query.deviceId + '/daily/usages',
+    endpoint = domain + '/1.1/devices/' + req.query.deviceId + '/daily/usages',
 
     options = {
       method: 'GET',
