@@ -57,7 +57,7 @@ exports.deviceEvent = function (req, res) {
       },
       json: true
     };
-
+  console.log('options: ', options);
   request(options, function (err, response, body) {
 
     var statusCode = (response && response.statusCode) || 400,
