@@ -83,7 +83,9 @@ angular.module('uplusApiApp')
           deviceId : '',
           token : '',
           start: '',
-          end: ''
+          end: '',
+          offset: '',
+          limit: ''
         }
       },
       {
@@ -93,7 +95,9 @@ angular.module('uplusApiApp')
           deviceId : '',
           token : '',
           start: '',
-          end: ''
+          end: '',
+          offset: '',
+          limit: ''
         }
       },
       {
