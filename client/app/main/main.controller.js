@@ -9,7 +9,7 @@ angular.module('uplusApiApp')
         api : '/test/admin/register',
         param :{
           serialNumber : '',
-          deviceId : '',
+          uuid : '',
           token : ''
         }
       },
@@ -81,7 +81,9 @@ angular.module('uplusApiApp')
         api : '/test/device/hourly/usage',
         param :{
           deviceId : '',
-          token : ''
+          token : '',
+          start: '',
+          end: ''
         }
       },
       {
@@ -89,7 +91,9 @@ angular.module('uplusApiApp')
         api : '/test/device/daily/usage',
         param :{
           deviceId : '',
-          token : ''
+          token : '',
+          start: '',
+          end: ''
         }
       },
       {
@@ -97,7 +101,8 @@ angular.module('uplusApiApp')
         api : '/test/device/events/push/set',
         param :{
           deviceId : '',
-          token : ''
+          token : '',
+          status : ''
         }
       },
       {

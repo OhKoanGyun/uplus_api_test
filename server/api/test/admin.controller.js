@@ -19,7 +19,7 @@ exports.register = function (req, res) {
       },
       body: {
         serialNumber: req.query.serialNumber,
-        deviceId: req.query.deviceId
+        uuid: req.query.uuid
       },
       json: true
     };
@@ -213,7 +213,8 @@ exports.deviceMeteringUsage = function (req, res) {
 
     res.send({
       statusCode: statusCode,
-      result: result
+      result: result,
+      timestamp: req.query.timestamp
     });
 
   });
