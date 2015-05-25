@@ -64,7 +64,8 @@ angular.module('uplusApiApp')
         api : '/test/admin/devices/meteringUsage',
         param :{
           deviceId : '',
-          deviceIdType : ''
+          deviceIdType : '',
+          timestamp: ''
         }
       },
       {
