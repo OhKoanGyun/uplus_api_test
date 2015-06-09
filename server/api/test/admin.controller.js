@@ -57,7 +57,7 @@ exports.deviceEvent = function (req, res) {
       },
       json: true
     };
-
+  console.log('options: ', options);
   request(options, function (err, response, body) {
 
     var statusCode = (response && response.statusCode) || 400,
@@ -161,6 +161,34 @@ exports.deviceReset = function (req, res) {
 
 };
 
+exports.firmwareUpdate = function (req, res) {
+
+  var domain = req.query.host || config.domain,
+    endpoint = domain + '/admin/1.2/devices/' + req.query.deviceId + '/firmware/update',
+    options = {
+      method: 'PUT',
+      url: endpoint,
+      headers: {
+        'Authorization': 'Basic ' + apiKey,
+        'device-id-type': req.query.deviceIdType
+      },
+      json: true
+    };
+
+  request(options, function (err, response, body) {
+
+    var statusCode = (response && response.statusCode) || 400,
+      result = err || body;
+
+    res.send({
+      statusCode: statusCode,
+      result: result
+    });
+
+  });
+
+};
+
 exports.deviceMeteringUsage = function (req, res) {
 
   var domain = req.query.host || config.domain,
@@ -172,7 +200,10 @@ exports.deviceMeteringUsage = function (req, res) {
         'Authorization': 'Basic ' + apiKey,
         'device-id-type': req.query.deviceIdType
       },
-      json: true
+      json: true,
+      qs: {
+        timestamp: req.query.timestamp
+      }
     };
 
   request(options, function (err, response, body) {

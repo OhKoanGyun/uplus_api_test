@@ -11,6 +11,7 @@ router.get('/admin/devices/event', adminCtrl.deviceEvent);
 router.get('/admin/devices/events', adminCtrl.deviceEvents);
 router.get('/admin/devices/status', adminCtrl.deviceStatus);
 router.get('/admin/devices/reset', adminCtrl.deviceReset);
+router.get('/admin/devices/firmware/update', adminCtrl.firmwareUpdate)
 router.get('/admin/devices/meteringUsage', adminCtrl.deviceMeteringUsage);
 
 router.get('/device/realtime', deviceCtrl.realtime);
