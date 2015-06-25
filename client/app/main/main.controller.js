@@ -51,14 +51,14 @@ angular.module('uplusApiApp')
           deviceIdType : ''
         }
       },
-      //{
-      //  name : '기기 펌웨어 업데이트',
-      //  api : '/test/admin/devices/firmware/update',
-      //  param :{
-      //    deviceId : '',
-      //    deviceIdType : ''
-      //  }
-      //},
+      {
+        name : '기기 펌웨어 업데이트',
+        api : '/test/admin/devices/firmware/update',
+        param :{
+          deviceId : '',
+          deviceIdType : ''
+        }
+      },
       {
         name : '전력 사용량',
         api : '/test/admin/devices/meteringUsage',

@@ -21,7 +21,10 @@ exports.register = function (req, res) {
         serialNumber: req.query.serialNumber,
         uuid: req.query.uuid
       },
-      json: true
+      json: true,
+      agentOptions: {
+        rejectUnauthorized: false
+      }
     };
 
   request(options, function (err, response, body) {
@@ -55,9 +58,12 @@ exports.deviceEvent = function (req, res) {
         offset: req.query.offset,
         limit: req.query.limit
       },
-      json: true
+      json: true,
+      agentOptions: {
+        rejectUnauthorized: false
+      }
     };
-  console.log('options: ', options);
+
   request(options, function (err, response, body) {
 
     var statusCode = (response && response.statusCode) || 400,
@@ -88,7 +94,10 @@ exports.deviceEvents = function (req, res) {
         offset: req.query.offset,
         limit: req.query.limit
       },
-      json: true
+      json: true,
+      agentOptions: {
+        rejectUnauthorized: false
+      }
     };
 
   request(options, function (err, response, body) {
@@ -116,7 +125,10 @@ exports.deviceStatus = function (req, res) {
         'Authorization': 'Basic ' + apiKey,
         'device-id-type': req.query.deviceIdType
       },
-      json: true
+      json: true,
+      agentOptions: {
+        rejectUnauthorized: false
+      }
     };
 
   request(options, function (err, response, body) {
@@ -144,7 +156,10 @@ exports.deviceReset = function (req, res) {
         'Authorization': 'Basic ' + apiKey,
         'device-id-type': req.query.deviceIdType
       },
-      json: true
+      json: true,
+      agentOptions: {
+        rejectUnauthorized: false
+      }
     };
 
   request(options, function (err, response, body) {
@@ -172,7 +187,10 @@ exports.firmwareUpdate = function (req, res) {
         'Authorization': 'Basic ' + apiKey,
         'device-id-type': req.query.deviceIdType
       },
-      json: true
+      json: true,
+      agentOptions: {
+        rejectUnauthorized: false
+      }
     };
 
   request(options, function (err, response, body) {
@@ -203,6 +221,9 @@ exports.deviceMeteringUsage = function (req, res) {
       json: true,
       qs: {
         timestamp: req.query.timestamp
+      },
+      agentOptions: {
+        rejectUnauthorized: false
       }
     };
 

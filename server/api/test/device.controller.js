@@ -17,7 +17,10 @@ exports.realtime = function (req, res) {
         'Authorization': 'Basic ' + apiKey,
         'token': req.query.token
       },
-      json: true
+      json: true,
+      agentOptions: {
+        rejectUnauthorized: false
+      }
     };
 
   request(options, function (err, response, body) {
@@ -51,6 +54,9 @@ exports.hourlyUsage = function (req, res) {
       qs: {
         start: req.query.start,
         end: req.query.end
+      },
+      agentOptions: {
+        rejectUnauthorized: false
       }
     };
 
@@ -85,6 +91,9 @@ exports.dailyUsage = function (req, res) {
       qs: {
         start: req.query.start,
         end: req.query.end
+      },
+      agentOptions: {
+        rejectUnauthorized: false
       }
     };
 
@@ -117,7 +126,10 @@ exports.setEventPush = function (req, res) {
       body: {
         status: req.query.status
       },
-      json: true
+      json: true,
+      agentOptions: {
+        rejectUnauthorized: false
+      }
     };
 
   request(options, function (err, response, body) {
@@ -146,7 +158,10 @@ exports.getEventPush = function (req, res) {
         'Authorization': 'Basic ' + apiKey,
         'token': req.query.token
       },
-      json: true
+      json: true,
+      agentOptions: {
+        rejectUnauthorized: false
+      }
     };
 
   request(options, function (err, response, body) {
