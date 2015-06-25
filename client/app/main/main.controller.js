@@ -56,7 +56,8 @@ angular.module('uplusApiApp')
         api : '/test/admin/devices/firmware/update',
         param :{
           deviceId : '',
-          deviceIdType : ''
+          deviceIdType : '',
+          firmwareVersion : ''
         }
       },
       {

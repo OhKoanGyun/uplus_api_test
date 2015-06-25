@@ -190,6 +190,9 @@ exports.firmwareUpdate = function (req, res) {
       json: true,
       agentOptions: {
         rejectUnauthorized: false
+      },
+      body: {
+        firmwareVersion: req.query.firmwareVersion
       }
     };
 
